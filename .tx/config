@@ -1,0 +1,7 @@
+[main]
+host = https://www.transifex.com
+
+[surge-project-translations.qt-translation-50x]
+file_filter = src/qt/locale/surge_<lang>.ts
+source_file = src/qt/locale/surge_en.ts
+source_lang = en

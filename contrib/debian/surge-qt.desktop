@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=SURGE Core
+Comment=SURGE P2P Cryptocurrency
+Comment[fr]=SURGE, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=SURGE, eşten eşe kriptografik sanal para birimi
+Exec=surge-qt %u
+Terminal=false
+Type=Application
+Icon=surge128
+MimeType=x-scheme-handler/surge;
+Categories=Office;Finance;
+StartupWMClass=Surge-qt

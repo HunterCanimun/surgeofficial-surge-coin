@@ -1,0 +1,727 @@
+# Copyright (c) 2013-2016 The Bitcoin Core developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+bin_PROGRAMS += qt/surge-qt
+EXTRA_LIBRARIES += qt/libbitcoinqt.a
+
+# surge qt core #
+include Makefile.qt_locale.include
+
+QT_FORMS_UI = \
+  qt/forms/addressbookpage.ui \
+  qt/forms/askpassphrasedialog.ui \
+  qt/forms/coincontroldialog.ui \
+  qt/forms/editaddressdialog.ui \
+  qt/forms/helpmessagedialog.ui \
+  qt/forms/intro.ui \
+  qt/forms/openuridialog.ui \
+  qt/forms/optionsdialog.ui \
+  qt/forms/rpcconsole.ui \
+  qt/surge/forms/loadingdialog.ui \
+  qt/surge/forms/snackbar.ui \
+  qt/surge/forms/navmenuwidget.ui \
+  qt/surge/forms/lockunlock.ui \
+  qt/surge/forms/expandablebutton.ui \
+  qt/surge/forms/receivedialog.ui \
+  qt/surge/forms/balancebubble.ui \
+  qt/surge/forms/topbar.ui \
+  qt/surge/forms/txrow.ui \
+  qt/surge/forms/dashboardwidget.ui \
+  qt/surge/forms/addresslabelrow.ui \
+  qt/surge/forms/contactdropdownrow.ui \
+  qt/surge/forms/mninfodialog.ui \
+  qt/surge/forms/optionbutton.ui \
+  qt/surge/forms/masternodewizarddialog.ui \
+  qt/surge/forms/mnrow.ui \
+  qt/surge/forms/masternodeswidget.ui \
+  qt/surge/forms/myaddressrow.ui \
+  qt/surge/forms/csrow.ui \
+  qt/surge/forms/sendmemodialog.ui \
+  qt/surge/forms/sendchangeaddressdialog.ui \
+  qt/surge/forms/sendconfirmdialog.ui \
+  qt/surge/forms/sendcustomfeedialog.ui \
+  qt/surge/forms/sendmultirow.ui \
+  qt/surge/forms/send.ui \
+  qt/surge/forms/addnewaddressdialog.ui \
+  qt/surge/forms/addnewcontactdialog.ui \
+  qt/surge/forms/requestdialog.ui \
+  qt/surge/forms/receivewidget.ui \
+  qt/surge/forms/tooltipmenu.ui \
+  qt/surge/forms/addresseswidget.ui \
+  qt/surge/forms/defaultdialog.ui \
+  qt/surge/forms/coldstakingwidget.ui \
+  qt/surge/settings/forms/settingsbackupwallet.ui \
+  qt/surge/settings/forms/settingsexportcsv.ui \
+  qt/surge/settings/forms/settingsbittoolwidget.ui \
+  qt/surge/settings/forms/settingsconsolewidget.ui \
+  qt/surge/settings/forms/settingsdisplayoptionswidget.ui \
+  qt/surge/settings/forms/settingsfaqwidget.ui \
+  qt/surge/settings/forms/settingsinformationwidget.ui \
+  qt/surge/settings/forms/settingsmainoptionswidget.ui \
+  qt/surge/settings/forms/settingsmultisenddialog.ui \
+  qt/surge/settings/forms/settingsmultisendwidget.ui \
+  qt/surge/settings/forms/settingssignmessagewidgets.ui \
+  qt/surge/settings/forms/settingswalletoptionswidget.ui \
+  qt/surge/settings/forms/settingswalletrepairwidget.ui \
+  qt/surge/settings/forms/settingswidget.ui \
+  qt/surge/forms/welcomecontentwidget.ui \
+  qt/surge/forms/splash.ui
+
+QT_MOC_CPP = \
+  qt/moc_addressbookpage.cpp \
+  qt/moc_addresstablemodel.cpp \
+  qt/moc_askpassphrasedialog.cpp \
+  qt/moc_bantablemodel.cpp \
+  qt/moc_bitcoinaddressvalidator.cpp \
+  qt/surge/moc_surgegui.cpp \
+  qt/moc_bitcoinunits.cpp \
+  qt/moc_clientmodel.cpp \
+  qt/moc_coincontroldialog.cpp \
+  qt/moc_coincontroltreewidget.cpp \
+  qt/moc_csvmodelwriter.cpp \
+  qt/moc_editaddressdialog.cpp \
+  qt/moc_guiutil.cpp \
+  qt/moc_intro.cpp \
+  qt/moc_macdockiconhandler.cpp \
+  qt/moc_macnotificationhandler.cpp \
+  qt/moc_notificator.cpp \
+  qt/moc_openuridialog.cpp \
+  qt/moc_optionsdialog.cpp \
+  qt/moc_optionsmodel.cpp \
+  qt/moc_peertablemodel.cpp \
+  qt/moc_paymentserver.cpp \
+  qt/moc_qvalidatedlineedit.cpp \
+  qt/moc_qvaluecombobox.cpp \
+  qt/moc_recentrequeststablemodel.cpp \
+  qt/moc_rpcconsole.cpp \
+  qt/moc_trafficgraphwidget.cpp \
+  qt/moc_transactionfilterproxy.cpp \
+  qt/moc_transactiontablemodel.cpp \
+  qt/moc_utilitydialog.cpp \
+  qt/moc_walletmodel.cpp \
+  qt/surge/moc_loadingdialog.cpp \
+  qt/surge/moc_pwidget.cpp \
+  qt/surge/moc_focuseddialog.cpp \
+  qt/surge/moc_snackbar.cpp \
+  qt/surge/moc_navmenuwidget.cpp \
+  qt/surge/moc_lockunlock.cpp \
+  qt/surge/moc_expandablebutton.cpp \
+  qt/surge/moc_furabstractlistitemdelegate.cpp \
+  qt/surge/moc_receivedialog.cpp \
+  qt/surge/moc_pfborderimage.cpp \
+  qt/surge/moc_topbar.cpp \
+  qt/surge/moc_txrow.cpp \
+  qt/surge/moc_dashboardwidget.cpp \
+  qt/surge/moc_addresslabelrow.cpp \
+  qt/surge/moc_contactdropdownrow.cpp \
+  qt/surge/moc_mninfodialog.cpp \
+  qt/surge/moc_optionbutton.cpp \
+  qt/surge/moc_coldstakingmodel.cpp \
+  qt/surge/moc_mnmodel.cpp \
+  qt/surge/moc_masternodewizarddialog.cpp \
+  qt/surge/moc_mnrow.cpp \
+  qt/surge/moc_masternodeswidget.cpp \
+  qt/surge/moc_myaddressrow.cpp \
+  qt/surge/moc_csrow.cpp \
+  qt/surge/moc_contactsdropdown.cpp \
+  qt/surge/moc_sendchangeaddressdialog.cpp \
+  qt/surge/moc_sendconfirmdialog.cpp \
+  qt/surge/moc_sendcustomfeedialog.cpp \
+  qt/surge/moc_sendmemodialog.cpp \
+  qt/surge/moc_sendmultirow.cpp \
+  qt/surge/moc_send.cpp \
+  qt/surge/moc_addnewaddressdialog.cpp \
+  qt/surge/moc_addnewcontactdialog.cpp \
+  qt/surge/moc_requestdialog.cpp \
+  qt/surge/moc_receivewidget.cpp \
+  qt/surge/moc_tooltipmenu.cpp \
+  qt/surge/moc_addresseswidget.cpp \
+  qt/surge/moc_defaultdialog.cpp \
+  qt/surge/moc_coldstakingwidget.cpp \
+  qt/surge/settings/moc_settingsbackupwallet.cpp \
+  qt/surge/settings/moc_settingsexportcsv.cpp \
+  qt/surge/settings/moc_settingsbittoolwidget.cpp \
+  qt/surge/settings/moc_settingsconsolewidget.cpp \
+  qt/surge/settings/moc_settingsdisplayoptionswidget.cpp \
+  qt/surge/settings/moc_settingsfaqwidget.cpp \
+  qt/surge/settings/moc_settingsinformationwidget.cpp \
+  qt/surge/settings/moc_settingsmainoptionswidget.cpp \
+  qt/surge/settings/moc_settingsmultisenddialog.cpp \
+  qt/surge/settings/moc_settingsmultisendwidget.cpp \
+  qt/surge/settings/moc_settingssignmessagewidgets.cpp \
+  qt/surge/settings/moc_settingswalletoptionswidget.cpp \
+  qt/surge/settings/moc_settingswalletrepairwidget.cpp \
+  qt/surge/settings/moc_settingswidget.cpp \
+  qt/surge/moc_welcomecontentwidget.cpp \
+  qt/surge/moc_splash.cpp
+
+BITCOIN_MM = \
+  qt/macdockiconhandler.mm \
+  qt/macnotificationhandler.mm
+
+QT_MOC = \
+  qt/surge.moc \
+  qt/intro.moc \
+  qt/rpcconsole.moc \
+  qt/surge/settings/moc_settingsconsolewidget.cpp
+
+QT_QRC_CPP = qt/qrc_surge.cpp
+QT_QRC = qt/surge.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_surge_locale.cpp
+QT_QRC_LOCALE = qt/surge_locale.qrc
+
+PROTOBUF_CC = qt/paymentrequest.pb.cc
+PROTOBUF_H = qt/paymentrequest.pb.h
+PROTOBUF_PROTO = qt/paymentrequest.proto
+
+BITCOIN_QT_H = \
+  qt/addressbookpage.h \
+  qt/addresstablemodel.h \
+  qt/askpassphrasedialog.h \
+  qt/bantablemodel.h \
+  qt/bitcoinaddressvalidator.h \
+  qt/surge/surgegui.h \
+  qt/bitcoinunits.h \
+  qt/clientmodel.h \
+  qt/coincontroldialog.h \
+  qt/coincontroltreewidget.h \
+  qt/csvmodelwriter.h \
+  qt/editaddressdialog.h \
+  qt/guiconstants.h \
+  qt/guiutil.h \
+  qt/intro.h \
+  qt/macdockiconhandler.h \
+  qt/macnotificationhandler.h \
+  qt/networkstyle.h \
+  qt/notificator.h \
+  qt/openuridialog.h \
+  qt/optionsdialog.h \
+  qt/optionsmodel.h \
+  qt/paymentrequestplus.h \
+  qt/paymentserver.h \
+  qt/peertablemodel.h \
+  qt/platformstyle.h \
+  qt/qvalidatedlineedit.h \
+  qt/qvaluecombobox.h \
+  qt/recentrequeststablemodel.h \
+  qt/rpcconsole.h \
+  qt/trafficgraphwidget.h \
+  qt/transactionfilterproxy.h \
+  qt/transactionrecord.h \
+  qt/transactiontablemodel.h \
+  qt/utilitydialog.h \
+  qt/walletmodel.h \
+  qt/walletmodeltransaction.h \
+  qt/surge/prunnable.h \
+  qt/surge/pfborderimage.h \
+  qt/surge/loadingdialog.h \
+  qt/winshutdownmonitor.h \
+  qt/surge/pwidget.h \
+  qt/surge/focuseddialog.h \
+  qt/surge/guitransactionsutils.h \
+  qt/surge/snackbar.h \
+  qt/surge/navmenuwidget.h \
+  qt/surge/lockunlock.h \
+  qt/surge/receivedialog.h \
+  qt/surge/furlistrow.h \
+  qt/surge/furabstractlistitemdelegate.h \
+  qt/surge/txviewholder.h \
+  qt/surge/qtutils.h \
+  qt/surge/expandablebutton.h \
+  qt/surge/balancebubble.h \
+  qt/surge/topbar.h \
+  qt/surge/txrow.h \
+  qt/surge/addressholder.h \
+  qt/surge/addressfilterproxymodel.h \
+  qt/surge/dashboardwidget.h \
+  qt/surge/addresslabelrow.h \
+  qt/surge/contactdropdownrow.h \
+  qt/surge/mninfodialog.h \
+  qt/surge/optionbutton.h \
+  qt/surge/coldstakingmodel.h \
+  qt/surge/mnmodel.h \
+  qt/surge/masternodewizarddialog.h \
+  qt/surge/mnrow.h \
+  qt/surge/masternodeswidget.h \
+  qt/surge/myaddressrow.h \
+  qt/surge/csrow.h \
+  qt/surge/contactsdropdown.h \
+  qt/surge/sendchangeaddressdialog.h \
+  qt/surge/sendconfirmdialog.h \
+  qt/surge/sendcustomfeedialog.h \
+  qt/surge/sendmemodialog.h \
+  qt/surge/sendmultirow.h \
+  qt/surge/send.h \
+  qt/surge/addnewaddressdialog.h \
+  qt/surge/addnewcontactdialog.h \
+  qt/surge/requestdialog.h \
+  qt/surge/receivewidget.h \
+  qt/surge/tooltipmenu.h \
+  qt/surge/addresseswidget.h \
+  qt/surge/defaultdialog.h \
+  qt/surge/coldstakingwidget.h \
+  qt/surge/settings/settingsbackupwallet.h \
+  qt/surge/settings/settingsexportcsv.h \
+  qt/surge/settings/settingsbittoolwidget.h \
+  qt/surge/settings/settingsconsolewidget.h \
+  qt/surge/settings/settingsdisplayoptionswidget.h \
+  qt/surge/settings/settingsfaqwidget.h \
+  qt/surge/settings/settingsinformationwidget.h \
+  qt/surge/settings/settingsmainoptionswidget.h \
+  qt/surge/settings/settingsmultisenddialog.h \
+  qt/surge/settings/settingsmultisendwidget.h \
+  qt/surge/settings/settingssignmessagewidgets.h \
+  qt/surge/settings/settingswalletoptionswidget.h \
+  qt/surge/settings/settingswalletrepairwidget.h \
+  qt/surge/settings/settingswidget.h \
+  qt/surge/welcomecontentwidget.h \
+  qt/surge/splash.h
+
+RES_ICONS = \
+  qt/res/icons/bitcoin.ico \
+  qt/res/icons/bitcoin.png \
+  qt/res/icons/bitcoin_testnet.ico \
+  qt/res/icons/bitcoin_testnet.png \
+  qt/res/icons/bitcoin_regtest.png \
+  qt/res/icons/lock_closed.png \
+  qt/res/icons/lock_open.png \
+  qt/res/icons/overview.png \
+  qt/res/icons/ic-transaction-received.svg \
+  qt/res/icons/ic-transaction-mint.svg \
+  qt/res/icons/ic-transaction-sent.svg \
+  qt/res/icons/ic-transaction-staked.svg \
+  qt/surge/res/img/bg-dashboard-banner.png \
+  qt/surge/res/img/bg-multi-number-dark.svg \
+  qt/surge/res/img/ic-check-locked.svg \
+  qt/surge/res/img/ic-nav-address.svg \
+  qt/surge/res/img/ic-update.svg \
+  qt/surge/res/img/bg-multi-number.svg \
+  qt/surge/res/img/ic-check-mint-off.svg \
+  qt/surge/res/img/ic-nav-cold-staking.svg \
+  qt/surge/res/img/ic-nav-cold-staking-active.svg \
+  qt/surge/res/img/ic-nav-dashboard-active.svg \
+  qt/surge/res/img/ic-wallet-status-locked.svg \
+  qt/surge/res/img/bg-splash.svg \
+  qt/surge/res/img/bg-splash.png \
+  qt/surge/res/img/ic-check-mint.svg \
+  qt/surge/res/img/ic-nav-dashboard-hover.svg \
+  qt/surge/res/img/ic-wallet-status-staking.svg \
+  qt/surge/res/img/ic-check-peers-off.svg \
+  qt/surge/res/img/ic-nav-dashboard.svg \
+  qt/surge/res/img/ic-wallet-status-unlocked.svg \
+  qt/surge/res/img/ic-check-peers.svg \
+  qt/surge/res/img/ic-nav-master-active.svg \
+  qt/surge/res/img/ic-watch-password-white.svg \
+  qt/surge/res/img/bg-welcome-container.jpg \
+  qt/surge/res/img/bg-welcome-container.png \
+  qt/surge/res/img/bg-welcome-container.svg \
+  qt/surge/res/img/bg-welcome-container@2x.png \
+  qt/surge/res/img/bg-welcome-container@3x.png \
+  qt/surge/res/img/ic-check-staking-off.svg \
+  qt/surge/res/img/ic-nav-master-hover.svg \
+  qt/surge/res/img/ic-watch-password.svg \
+  qt/surge/res/img/bg-welcome.jpg \
+  qt/surge/res/img/bg-welcome.svg \
+  qt/surge/res/img/bg-welcome@2x.jpg \
+  qt/surge/res/img/bg-welcome@3x.jpg \
+  qt/surge/res/img/bg-welcome.png \
+  qt/surge/res/img/ic-check-staking.svg \
+  qt/surge/res/img/ic-nav-master.svg \
+  qt/surge/res/img/img-dashboard-banner.jpg \
+  qt/surge/res/img/btn-radio-active.svg \
+  qt/surge/res/img/ic-check-sync-off.svg \
+  qt/surge/res/img/ic-nav-privacy-active.svg \
+  qt/surge/res/img/img-empty-contacts.svg \
+  qt/surge/res/img/btn-radio-off.svg \
+  qt/surge/res/img/ic-check-sync.png \
+  qt/surge/res/img/ic-nav-privacy-hover.svg \
+  qt/surge/res/img/img-empty-dark-contacts.svg \
+  qt/surge/res/img/ic-contact-arrow-down.svg \
+  qt/surge/res/img/ic-contact-arrow-down-white.svg \
+  qt/surge/res/img/ic-check-sync.svg \
+  qt/surge/res/img/ic-check-faq.svg \
+  qt/surge/res/img/ic-nav-privacy.svg \
+  qt/surge/res/img/img-empty-dark-error.svg \
+  qt/surge/res/img/ic-add-label.svg \
+  qt/surge/res/img/ic-pending.svg \
+  qt/surge/res/img/ic-check-theme-dark.svg \
+  qt/surge/res/img/ic-nav-receive-active.svg \
+  qt/surge/res/img/img-empty-dark-masternode.svg \
+  qt/surge/res/img/ic-add-liliac.svg \
+  qt/surge/res/img/ic-check-theme-light.svg \
+  qt/surge/res/img/ic-nav-receive-hover.svg \
+  qt/surge/res/img/img-empty-dark-multisend.svg \
+  qt/surge/res/img/ic-add-purple.svg \
+  qt/surge/res/img/ic-check-white.svg \
+  qt/surge/res/img/ic-nav-receive.svg \
+  qt/surge/res/img/img-empty-dark-peers.svg \
+  qt/surge/res/img/ic-add.svg \
+  qt/surge/res/img/ic-check.svg \
+  qt/surge/res/img/ic-nav-send-active.svg \
+  qt/surge/res/img/img-empty-dark-staking-off.svg \
+  qt/surge/res/img/img-empty-dark-staking-on.svg \
+  qt/surge/res/img/ic-address-book-grey.svg \
+  qt/surge/res/img/ic-chevron-left.svg \
+  qt/surge/res/img/ic-nav-send-hover.svg \
+  qt/surge/res/img/img-empty-dark-transactions.svg \
+  qt/surge/res/img/ic-address-book-white.svg \
+  qt/surge/res/img/ic-chevron-right.svg \
+  qt/surge/res/img/ic-chevron-right-liliac.svg \
+  qt/surge/res/img/ic-nav-send.svg \
+  qt/surge/res/img/img-empty-error.svg \
+  qt/surge/res/img/ic-address-book.svg \
+  qt/surge/res/img/ic-clear-liliac.svg \
+  qt/surge/res/img/ic-nav-settings-active.svg \
+  qt/surge/res/img/img-empty-masternode.svg \
+  qt/surge/res/img/ic-address-send-white.svg \
+  qt/surge/res/img/ic-clear-purple.svg \
+  qt/surge/res/img/ic-nav-settings-hover.svg \
+  qt/surge/res/img/img-empty-multisend.svg \
+  qt/surge/res/img/ic-address-send.svg \
+  qt/surge/res/img/ic-close-white.svg \
+  qt/surge/res/img/ic-nav-settings.svg \
+  qt/surge/res/img/img-empty-peers.svg \
+  qt/surge/res/img/img-empty-privacy.svg \
+  qt/surge/res/img/img-empty-privacy-dark.svg \
+  qt/surge/res/img/ic-arrow-drop-down-white.svg \
+  qt/surge/res/img/ic-close.svg \
+  qt/surge/res/img/ic-radio-liliac-on.svg \
+  qt/surge/res/img/img-empty-staking-off.svg \
+  qt/surge/res/img/ic-arrow-drop-down.svg \
+  qt/surge/res/img/ic-coin-srg.svg \
+  qt/surge/res/img/ic-receive-off.svg \
+  qt/surge/res/img/img-empty-staking-on.svg \
+  qt/surge/res/img/ic-arrow-drop-up-white.svg \
+  qt/surge/res/img/ic-coin-zsrg.png \
+  qt/surge/res/img/ic-receive-on.svg \
+  qt/surge/res/img/img-empty-transactions.svg \
+  qt/surge/res/img/ic-arrow-drop-up.svg \
+  qt/surge/res/img/ic-coin-zsrg.svg \
+  qt/surge/res/img/ic-received.svg \
+  qt/surge/res/img/img-logo-surge.png \
+  qt/surge/res/img/ic-arrow-drop-white-down.svg \
+  qt/surge/res/img/ic-combo-box.svg \
+  qt/surge/res/img/ic-send.svg \
+  qt/surge/res/img/img-logo-surge@2x.png \
+  qt/surge/res/img/ic-arrow-purple-down.svg \
+  qt/surge/res/img/ic-connect.svg \
+  qt/surge/res/img/ic-submenu-lock.svg \
+  qt/surge/res/img/img-logo-surge@3x.png \
+  qt/surge/res/img/img-logo-surge.svg \
+  qt/surge/res/img/ic-arrow-right-white.svg \
+  qt/surge/res/img/ic-arrow-left-white.svg \
+  qt/surge/res/img/ic-arrow-left.svg \
+  qt/surge/res/img/ic-copy-liliac.svg \
+  qt/surge/res/img/ic-submenu-staking.svg \
+  qt/surge/res/img/img-nav-logo-surge.png \
+  qt/surge/res/img/ic-arrow-right.svg \
+  qt/surge/res/img/ic-copy.svg \
+  qt/surge/res/img/ic-copy-big.svg \
+  qt/surge/res/img/ic-copy-big-white.svg \
+  qt/surge/res/img/ic-submenu-unlock.svg \
+  qt/surge/res/img/img-nav-logo.png \
+  qt/surge/res/img/ic-arrow-white-left.svg \
+  qt/surge/res/img/ic-exit.svg \
+  qt/surge/res/img/ic-switch-liliac-on.svg \
+  qt/surge/res/img/img-nav-logo.svg \
+  qt/surge/res/img/ic-arrow-white-right.svg \
+  qt/surge/res/img/ic-expand.svg \
+  qt/surge/res/img/ic-switch-off.svg \
+  qt/surge/res/img/img-qr-test-big.png \
+  qt/surge/res/img/ic-check-active.svg \
+  qt/surge/res/img/ic-folder.svg \
+  qt/surge/res/img/ic-switch-on.svg \
+  qt/surge/res/img/img-qr-test.png \
+  qt/surge/res/img/ic-check-box.svg \
+  qt/surge/res/img/ic-check-box-dark-active.svg \
+  qt/surge/res/img/ic-check-box-indeterminate.svg \
+  qt/surge/res/img/ic-check-box-liliac-indeterminate.svg \
+  qt/surge/res/img/ic-label-liliac.svg \
+  qt/surge/res/img/ic-transaction-warning.svg \
+  qt/surge/res/img/ic-transaction-mint.svg \
+  qt/surge/res/img/ic-transaction-mint-inactive.svg \
+  qt/surge/res/img/ic-check-cold-staking.svg \
+  qt/surge/res/img/ic-check-cold-staking-off.svg \
+  qt/surge/res/img/ic-check-cold-staking-enabled.svg \
+  qt/surge/res/img/dark/ic-transaction-cs-contract.svg \
+  qt/surge/res/img/dark/ic-transaction-cs-contract-inactive.svg \
+  qt/surge/res/img/img-qr.svg \
+  qt/surge/res/img/ic-check-connect-off.svg \
+  qt/surge/res/img/ic-check-tor-off.svg \
+  qt/surge/res/img/ic-check-tor.svg \
+  qt/surge/res/img/ic-label.svg \
+  qt/surge/res/img/ic-transaction-received.svg \
+  qt/surge/res/img/dark/ic-transaction-received.svg \
+  qt/surge/res/img/dark/ic-transaction-warning.svg \
+  qt/surge/res/img/dark/ic-transaction-mint.svg \
+  qt/surge/res/img/dark/ic-transaction-mint-inactive.svg \
+  qt/surge/res/img/ic-transaction-received-inactive.svg \
+  qt/surge/res/img/dark/ic-transaction-received-inactive.svg \
+  qt/surge/res/img/img-welcome-step1.png \
+  qt/surge/res/img/ic-check-connect.svg \
+  qt/surge/res/img/ic-menu-hover.svg \
+  qt/surge/res/img/ic-transaction-sent.svg \
+  qt/surge/res/img/ic-transaction-sent-inactive.svg \
+  qt/surge/res/img/dark/ic-transaction-sent.svg \
+  qt/surge/res/img/dark/ic-transaction-sent-inactive.svg \
+  qt/surge/res/img/img-welcome-step2.png \
+  qt/surge/res/img/ic-check-dark.svg \
+  qt/surge/res/img/ic-mint.svg \
+  qt/surge/res/img/ic-transaction-staked.svg \
+  qt/surge/res/img/ic-transaction-staked-inactive.svg \
+  qt/surge/res/img/dark/ic-transaction-staked.svg \
+  qt/surge/res/img/dark/ic-transaction-staked-inactive.svg \
+  qt/surge/res/img/img-welcome-step3.png \
+  qt/surge/res/img/ic-check-liliac-on.svg \
+  qt/surge/res/img/ic-nav-address-active.svg \
+  qt/surge/res/img/ic-unlock-staking.svg \
+  qt/surge/res/img/img-welcome-step4.png \
+  qt/surge/res/img/ic-check-locked-off.svg \
+  qt/surge/res/img/ic-nav-address-hover.svg \
+  qt/surge/res/img/ic-update-liliac.svg \
+  qt/surge/res/img/ic-arrow-drop-down-purple.svg \
+  qt/surge/res/img/ic-arrow-drop-up-purple.svg \
+  qt/surge/res/img/ic-check-liliac-indeterminate.svg \
+  qt/surge/res/img/ic-check-box-liliac-indeterminate.svg \
+  qt/surge/res/img/ic-transaction-stake-delegated.svg \
+  qt/surge/res/img/ic-transaction-stake-delegated-inactive.svg \
+  qt/surge/res/img/ic-transaction-stake-hot.svg \
+  qt/surge/res/img/ic-transaction-stake-hot-inactive.svg \
+  qt/surge/res/img/dark/ic-transaction-stake-hot.svg \
+  qt/surge/res/img/dark/ic-transaction-stake-hot-inactive.svg \
+  qt/surge/res/img/dark/ic-transaction-stake-delegated.svg \
+  qt/surge/res/img/dark/ic-transaction-stake-delegated-inactive.svg \
+  qt/surge/res/img/ic-transaction-cs-contract.svg \
+  qt/surge/res/img/ic-transaction-cs-contract-inactive.svg \
+  qt/surge/res/img/ic-check-box-indeterminate.svg \
+  qt/surge/res/img/ic-information.svg \
+  qt/surge/res/img/ic-information-hover.svg \
+  qt/surge/res/img/ani-loading-dark.gif \
+  qt/surge/res/img/ani-loading.gif
+
+BITCOIN_QT_BASE_CPP = \
+  qt/bantablemodel.cpp \
+  qt/bitcoinaddressvalidator.cpp \
+  qt/surge/surgegui.cpp \
+  qt/bitcoinunits.cpp \
+  qt/clientmodel.cpp \
+  qt/csvmodelwriter.cpp \
+  qt/guiutil.cpp \
+  qt/intro.cpp \
+  qt/networkstyle.cpp \
+  qt/notificator.cpp \
+  qt/optionsdialog.cpp \
+  qt/optionsmodel.cpp \
+  qt/peertablemodel.cpp \
+  qt/platformstyle.cpp \
+  qt/qvalidatedlineedit.cpp \
+  qt/qvaluecombobox.cpp \
+  qt/rpcconsole.cpp \
+  qt/trafficgraphwidget.cpp \
+  qt/utilitydialog.cpp
+
+BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp
+
+BITCOIN_QT_WALLET_CPP = \
+  qt/addressbookpage.cpp \
+  qt/addresstablemodel.cpp \
+  qt/askpassphrasedialog.cpp \
+  qt/coincontroldialog.cpp \
+  qt/coincontroltreewidget.cpp \
+  qt/editaddressdialog.cpp \
+  qt/openuridialog.cpp \
+  qt/paymentrequestplus.cpp \
+  qt/paymentserver.cpp \
+  qt/recentrequeststablemodel.cpp \
+  qt/transactionfilterproxy.cpp \
+  qt/transactionrecord.cpp \
+  qt/transactiontablemodel.cpp \
+  qt/walletmodel.cpp \
+  qt/walletmodeltransaction.cpp \
+  qt/surge/loadingdialog.cpp \
+  qt/surge/pwidget.cpp \
+  qt/surge/focuseddialog.cpp \
+  qt/surge/guitransactionsutils.cpp \
+  qt/surge/snackbar.cpp \
+  qt/surge/navmenuwidget.cpp \
+  qt/surge/lockunlock.cpp \
+  qt/surge/receivedialog.cpp \
+  qt/surge/furabstractlistitemdelegate.cpp \
+  qt/surge/txviewholder.cpp \
+  qt/surge/qtutils.cpp \
+  qt/surge/expandablebutton.cpp \
+  qt/surge/balancebubble.cpp \
+  qt/surge/topbar.cpp \
+  qt/surge/txrow.cpp \
+  qt/surge/addressholder.cpp \
+  qt/surge/addressfilterproxymodel.cpp \
+  qt/surge/dashboardwidget.cpp \
+  qt/surge/addresslabelrow.cpp \
+  qt/surge/contactdropdownrow.cpp \
+  qt/surge/contactsdropdown.cpp \
+  qt/surge/optionbutton.cpp \
+  qt/surge/mninfodialog.cpp \
+  qt/surge/coldstakingmodel.cpp \
+  qt/surge/mnmodel.cpp \
+  qt/surge/masternodewizarddialog.cpp \
+  qt/surge/mnrow.cpp \
+  qt/surge/masternodeswidget.cpp \
+  qt/surge/myaddressrow.cpp \
+  qt/surge/csrow.cpp \
+  qt/surge/sendchangeaddressdialog.cpp \
+  qt/surge/sendconfirmdialog.cpp \
+  qt/surge/sendcustomfeedialog.cpp \
+  qt/surge/sendmemodialog.cpp \
+  qt/surge/sendmultirow.cpp \
+  qt/surge/send.cpp \
+  qt/surge/addnewaddressdialog.cpp \
+  qt/surge/addnewcontactdialog.cpp \
+  qt/surge/requestdialog.cpp \
+  qt/surge/receivewidget.cpp \
+  qt/surge/tooltipmenu.cpp \
+  qt/surge/addresseswidget.cpp \
+  qt/surge/defaultdialog.cpp \
+  qt/surge/coldstakingwidget.cpp \
+  qt/surge/settings/settingsbackupwallet.cpp \
+  qt/surge/settings/settingsexportcsv.cpp \
+  qt/surge/settings/settingsbittoolwidget.cpp \
+  qt/surge/settings/settingsconsolewidget.cpp \
+  qt/surge/settings/settingsdisplayoptionswidget.cpp \
+  qt/surge/settings/settingsfaqwidget.cpp \
+  qt/surge/settings/settingsinformationwidget.cpp \
+  qt/surge/settings/settingsmainoptionswidget.cpp \
+  qt/surge/settings/settingsmultisenddialog.cpp \
+  qt/surge/settings/settingsmultisendwidget.cpp \
+  qt/surge/settings/settingssignmessagewidgets.cpp \
+  qt/surge/settings/settingswalletoptionswidget.cpp \
+  qt/surge/settings/settingswalletrepairwidget.cpp \
+  qt/surge/settings/settingswidget.cpp \
+  qt/surge/welcomecontentwidget.cpp \
+  qt/surge/splash.cpp
+
+
+BITCOIN_QT_CPP = $(BITCOIN_QT_BASE_CPP)
+if TARGET_WINDOWS
+BITCOIN_QT_CPP += $(BITCOIN_QT_WINDOWS_CPP)
+endif
+if ENABLE_WALLET
+BITCOIN_QT_CPP += $(BITCOIN_QT_WALLET_CPP)
+endif
+
+RES_IMAGES = \
+  qt/res/images/about.png \
+  qt/res/images/splash.png \
+  qt/res/images/splash_testnet.png \
+  qt/res/images/splash_regtest.png
+
+RES_CSS = \
+  qt/res/css/default.css \
+  qt/surge/res/css/style_dark.css \
+  qt/surge/res/css/style_light.css
+
+BITCOIN_RC = qt/res/surge-qt-res.rc
+
+BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
+  -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
+
+qt_libbitcoinqt_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(QT_DBUS_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_libbitcoinqt_a_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_libbitcoinqt_a_OBJCXXFLAGS = $(AM_OBJCXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_libbitcoinqt_a_SOURCES = $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(QT_FORMS_UI) \
+  $(QT_QRC) $(QT_QRC_LOCALE) $(QT_TS) $(PROTOBUF_PROTO) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS)
+
+nodist_qt_libbitcoinqt_a_SOURCES = $(QT_MOC_CPP) $(QT_MOC) $(PROTOBUF_CC) \
+  $(PROTOBUF_H) $(QT_QRC_CPP) $(QT_QRC_LOCALE_CPP)
+
+# forms/foo.h -> forms/ui_foo.h
+QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:.ui=.h))))
+
+# Most files will depend on the forms and moc files as includes. Generate them
+# before anything else.
+$(QT_MOC): $(QT_FORMS_H)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_surge_qt_OBJECTS) : | $(QT_MOC)
+
+#Generating these with a half-written protobuf header leads to wacky results.
+#This makes sure it's done.
+$(QT_MOC): $(PROTOBUF_H)
+$(QT_MOC_CPP): $(PROTOBUF_H)
+
+# surge-qt binary #
+qt_surge_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+  $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS) $(SVG_CFLAGS) $(CHARTS_CFLAGS)
+qt_surge_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+
+qt_surge_qt_SOURCES = qt/surge.cpp
+if TARGET_DARWIN
+  qt_surge_qt_SOURCES += $(BITCOIN_MM)
+endif
+if TARGET_WINDOWS
+  qt_surge_qt_SOURCES += $(BITCOIN_RC)
+endif
+qt_surge_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+if ENABLE_WALLET
+qt_surge_qt_LDADD += $(LIBBITCOIN_UTIL) $(LIBBITCOIN_WALLET)
+endif
+if ENABLE_ZMQ
+qt_surge_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+endif
+qt_surge_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) $(LIBSAPLING) $(LIBRUSTZCASH) $(LIBZCASH_LIBS) $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) \
+  $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(SVG_LIBS) $(CHARTS_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
+  $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+qt_surge_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_surge_qt_LIBTOOLFLAGS = $(AM_LIBTOOLFLAGS) --tag CXX
+
+#locale/foo.ts -> locale/foo.qm
+QT_QM=$(QT_TS:.ts=.qm)
+
+SECONDARY: $(QT_QM)
+
+$(srcdir)/qt/surgestrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES) $(libbitcoin_zmq_a_SOURCES) $(libbitcoin_util_a_SOURCES)
+	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
+	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) PACKAGE_NAME="$(PACKAGE_NAME)" $(PYTHON) ../share/qt/extract_strings_qt.py $^
+
+translate: $(srcdir)/qt/surgestrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_BASE_CPP) qt/surge.cpp $(BITCOIN_QT_WINDOWS_CPP) $(BITCOIN_QT_WALLET_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts $(srcdir)/qt/locale/surge_en.ts
+
+$(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
+	@test -f $(RCC)
+	@cp -f $< $(@D)/temp_$(<F)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name surge_locale $(@D)/temp_$(<F) | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+	@rm $(@D)/temp_$(<F)
+
+$(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(PROTOBUF_H)
+	@test -f $(RCC)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name surge $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno qt/surge/*.gcda qt/surge/*.gcno qt/surge/settings/*.gcda qt/surge/settings/*.gcno qt/temp_surge_locale.qrc
+
+CLEANFILES += $(CLEAN_QT)
+
+surge_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_surge_qt_OBJECTS) qt/surge-qt$(EXEEXT) $(LIBBITCOINQT)
+
+surge_qt : qt/surge-qt$(EXEEXT)
+
+ui_%.h: %.ui
+	@test -f $(UIC)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(UIC) -o $@ $< || (echo "Error creating $@"; false)
+
+%.moc: %.cpp
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+moc_%.cpp: %.h
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(MOC) $(DEFAULT_INCLUDES) $(QT_INCLUDES) $(MOC_DEFS) $< | \
+	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
+
+%.qm: %.ts
+	@test -f $(LRELEASE)
+	@$(MKDIR_P) $(@D)
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LRELEASE) -silent $< -qm $@

@@ -1,0 +1,3 @@
+usr/local/bin/surged usr/bin
+usr/local/bin/surge-cli usr/bin
+debian/examples/surge.conf etc/surge

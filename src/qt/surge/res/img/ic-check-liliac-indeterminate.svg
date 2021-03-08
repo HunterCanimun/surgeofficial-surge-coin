@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22px"
+   height="22px"
+   viewBox="0 0 22 22"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="ic-check-liliac-indeterminate.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs15" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1145"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="10.727273"
+     inkscape:cx="11"
+     inkscape:cy="11"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+  <title
+     id="title2">ic-check-active</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="ic-check-active"
+       transform="translate(-1.000000, -1.000000)">
+      <g
+         id="Group_8199"
+         transform="translate(1.000000, 1.000000)"
+         fill="#B088FF">
+        <path
+           d="M19.556,0 L2.444,0 C1.09603898,0.0043907874 0.0043907874,1.09603898 4.4408921e-16,2.444 L4.4408921e-16,19.556 C0.0043907874,20.903961 1.09603898,21.9956092 2.444,22 L19.556,22 C20.903961,21.9956092 21.9956092,20.903961 22,19.556 L22,2.444 C21.9956092,1.09603898 20.903961,0.0043907874 19.556,0 Z M3,10 L19,10 L19,13 L3,13 L3,10 Z"
+           id="check_on_light" />
+      </g>
+      <polygon
+         id="Rectangle_4538"
+         points="0 0 24 0 24 24 0 24" />
+    </g>
+  </g>
+  <path
+     style="fill:#00c8fc;fill-opacity:0.31372549;stroke-width:0.09322034"
+     d="M 1.4442367,21.724878 C 0.93436275,21.487442 0.43505698,20.980362 0.19808429,20.459322 0.06156178,20.159145 0.04661017,19.224521 0.04661017,10.990678 c 0,-8.4315332 0.01230653,-9.161667 0.15968449,-9.4739158 C 0.44157013,1.0182856 0.80343767,0.62540099 1.2916048,0.33842593 L 1.7245763,0.08389831 H 11 20.275424 l 0.432971,0.25452762 c 0.488168,0.28697506 0.850035,0.67985967 1.08531,1.17833627 0.147378,0.3122488 0.159685,1.0423826 0.159685,9.4739158 0,8.233843 -0.01495,9.168467 -0.151474,9.468644 -0.236973,0.52104 -0.736278,1.02812 -1.246153,1.265556 l -0.46678,0.217368 H 11 1.9110169 Z M 19.016949,11.50339 V 10.011864 H 11 2.9830508 v 1.491526 1.491525 H 11 19.016949 Z"
+     id="path824"
+     inkscape:connector-curvature="0" />
+</svg>

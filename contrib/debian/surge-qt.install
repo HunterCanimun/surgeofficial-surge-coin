@@ -1,0 +1,6 @@
+usr/local/bin/surge-qt usr/bin
+share/pixmaps/surge32.xpm usr/share/pixmaps
+share/pixmaps/surge16.xpm usr/share/pixmaps
+share/pixmaps/surge128.png usr/share/pixmaps
+debian/surge-qt.desktop usr/share/applications
+debian/surge-qt.protocol usr/share/kde4/services/

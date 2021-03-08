@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24px"
+   height="40px"
+   viewBox="0 0 24 40"
+   version="1.1"
+   id="svg13"
+   sodipodi:docname="ic-nav-receive-hover.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1145"
+     id="namedview15"
+     showgrid="false"
+     inkscape:zoom="5.9"
+     inkscape:cx="12"
+     inkscape:cy="20"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13" />
+  <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">Receive off</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <g
+     id="Receive-off"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="ic-receive-on"
+       transform="translate(-1.000000, 11.000000)">
+      <polygon
+         id="Rectangle_4413"
+         points="0 0 26 0 26 26 0 26" />
+      <g
+         id="Group_8987"
+         transform="translate(2.000000, 2.000000)"
+         fill="#B088FF">
+        <g
+           id="Group_8986">
+          <polygon
+             id="Path_18953"
+             points="18.178 10.734 16.822 9.265 12 13.716 12 0 10 0 10 13.716 5.178 9.266 3.822 10.734 11 17.361" />
+          <polygon
+             id="Path_18954"
+             points="20 15 20 20 2 20 2 15 0 15 0 22 22 22 22 15" />
+        </g>
+      </g>
+    </g>
+  </g>
+  <path
+     style="fill:#00c8fc;fill-opacity:0.31372549;stroke-width:0.16949153"
+     d="M 8.3948349,26.974043 4.8744157,23.72379 5.5459413,23.052264 6.2174668,22.380739 7.853992,23.893759 c 0.9000888,0.832161 1.9723453,1.804972 2.382792,2.161801 l 0.746267,0.648781 V 19.911493 13.118644 H 12 13.016949 v 6.792001 6.792 l 0.572602,-0.478441 c 0.314931,-0.263143 1.387161,-1.235598 2.382733,-2.161012 l 1.810131,-1.682571 0.67234,0.67234 0.67234,0.672339 -3.493785,3.213621 c -1.921582,1.767492 -3.544246,3.229765 -3.605921,3.249499 -0.06167,0.01973 -1.696323,-1.426737 -3.6325541,-3.214377 z"
+     id="path826"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:#00c8fc;fill-opacity:0.31372549;stroke-width:0.16949153"
+     d="M 0.98305085,31.508475 V 28.033898 H 2 3.0169492 v 2.542373 2.542373 H 12 20.983051 V 30.576271 28.033898 H 22 23.016949 v 3.474577 3.474576 H 12 0.98305085 Z"
+     id="path828"
+     inkscape:connector-curvature="0" />
+</svg>

@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=SURGE Core
+Comment=SURGE Core QT test network
+GenericName=SURGE Digital Currency QT client testnet network
+Exec=surge-core.qt-testnet %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/surge_testnet.png
+MimeType=x-scheme-handler/srg;
+Categories=X-Office;X-Finance;
+Keywords=internet;surge;zsrg;tsrg;core;wallet;qt;testnet;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

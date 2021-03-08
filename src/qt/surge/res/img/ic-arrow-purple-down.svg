@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="40px"
+   height="40px"
+   viewBox="0 0 40 40"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="ic-arrow-purple-down.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata17">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs15" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1145"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="5.9"
+     inkscape:cx="20"
+     inkscape:cy="20"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title2">ComboBox</title>
+  <desc
+     id="desc4">Created with Sketch.</desc>
+  <g
+     id="ComboBox"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="ic-arrow-drop-down"
+       transform="translate(0.000000, 8.000000)">
+      <g
+         id="Group_8822"
+         transform="translate(4.319000, 7.767000)"
+         fill="#B088FF">
+        <polygon
+           id="Path_18879"
+           points="7.681 8.598 0 1.466 1.362 0 7.681 5.868 14 -8.8817842e-16 15.361 1.466" />
+      </g>
+      <polygon
+         id="Rectangle_4407"
+         points="0 0 24 0 24 24 0 24" />
+    </g>
+  </g>
+  <path
+     style="fill:#00c8fc;fill-opacity:0.31372549;stroke-width:0.16949153"
+     d="m 9.6588964,22.128353 c -1.2596408,-1.179916 -2.95227,-2.759929 -3.7613981,-3.51114 l -1.471142,-1.365838 0.6258049,-0.715215 0.6258049,-0.715216 3.0955807,2.886138 c 1.7025692,1.587376 3.1524552,2.886138 3.2219682,2.886138 0.06951,0 1.480591,-1.258474 3.135729,-2.79661 C 16.786382,17.258475 18.200772,16 18.274332,16 c 0.152405,0 1.217193,1.065415 1.217193,1.217909 0,0.08291 -6.08965,5.80003 -7.203389,6.762733 -0.329217,0.284571 -0.404972,0.231201 -2.6292396,-1.852289 z"
+     id="path824"
+     inkscape:connector-curvature="0" />
+</svg>
