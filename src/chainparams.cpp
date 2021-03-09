@@ -70,12 +70,13 @@ static Checkpoints::MapCheckpoints mapCheckpoints = {
 {450, uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4")}, // POS V2
 {500, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // v3.4
 {550, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // 4.0
+{8000, uint256S("0x257f784683338feca3c8f1140e85c60615ad9dcb67cab32526a1edfe3e2fe776")}, // Release
 };
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1614561657, // * UNIX timestamp of last checkpoint block
-    0,    // * total number of transactions between genesis and last checkpoint
+    16622,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
     3000        // * estimated number of transactions per day after checkpoint
 };
@@ -210,8 +211,8 @@ public:
 		// nMasternodeCollateral = 85000;
 		
         // Note that of those with the service bits flag, most only support a subset of possible options
-        vSeeds.emplace_back("surgeofficial.uk", "seed1.surgeofficial.uk", true);     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.emplace_back("surgeofficial.uk", "seed2.surgeofficial.uk", true);    // Secondary DNS Seeder from Fuzzbawls
+        vSeeds.emplace_back("seed1", "seed1.surgeofficial.uk", true);     // Primary DNS Seeder from Fuzzbawls
+        vSeeds.emplace_back("seed2", "seed2.surgeofficial.uk", true);    // Secondary DNS Seeder from Fuzzbawls
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 28);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 43);
