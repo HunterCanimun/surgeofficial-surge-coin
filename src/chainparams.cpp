@@ -67,10 +67,11 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 static Checkpoints::MapCheckpoints mapCheckpoints = {
 {0, uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4")},
 {292, uint256S("0x34ae9d876727f009861ff7c79bc91ae4ade5d60163cc844fddd0a1a58671c275")}, // POS
-{450, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // POS V2
-{500, uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5")}, // v3.4
-{550, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // 4.0
-{8000, uint256S("0x257f784683338feca3c8f1140e85c60615ad9dcb67cab32526a1edfe3e2fe776")}, // Release
+{350, uint256S("0x6b190ffe5dbb8387f94962df1152e3a70f44ea2630b519c4b1df65aae97a5c46")}, // POS V2
+{450, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // v3.4
+{500, uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5")}, // v4.0
+{550, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // v5.0
+{8000, uint256S("0x19995a5f00a8d4193f762cb25c551bf14d516d80f57348d3293a957d282f7804")}, // Release
 };
 
 static const Checkpoints::CCheckpointData data = {
@@ -194,7 +195,7 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock =
                 uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock =
-                uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c");
+                uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5");
 		
         /**
          * The message start string is designed to be unlikely to occur in normal data.
