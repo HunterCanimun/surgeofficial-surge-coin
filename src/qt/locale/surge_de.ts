@@ -4043,7 +4043,7 @@ SURGE nutzt einen Proof of Stake (PoS) Konsensalgorithmus, der es den Besitzern 
                            &lt;a style='color: #b088ff' href='https://discord.surgeofficial.uk'&gt;
                            #support in our Discord&lt;/a&gt;.
                            If you prefer to submit a ticket, You can do so at
-                           &lt;a style='color: #b088ff' href='https://SURGE.freshdesk.com'&gt;
+                           &lt;a style='color: #b088ff' href='https://support.surgeofficial.uk'&gt;
                            our Freshdesk support site&lt;/a&gt;.
                            &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
                          </source>
@@ -4053,7 +4053,7 @@ Wir haben Support-Kanäle in den meisten unserer offiziellen Chatgruppen, z.B.
 &lt;a style='color: #b088ff' href='https://discord.surgeofficial.uk'&gt;
 #support in Discord&lt;/a&gt;
 Wenn Sie bevorzugen, uns ein Ticket zu schicken, besuchen Sie
-&lt;a style='color: #b088ff' href='https://SURGE.freshdesk.com'&gt;
+&lt;a style='color: #b088ff' href='https://support.surgeofficial.uk'&gt;
 unsere Support-Seite.&lt;/a&gt;
 &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>

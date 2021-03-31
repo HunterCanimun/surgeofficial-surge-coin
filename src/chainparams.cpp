@@ -65,21 +65,22 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
  * + Contains no strange transactions
  */
 static Checkpoints::MapCheckpoints mapCheckpoints = {
-{0, uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4")},
-{292, uint256S("0x34ae9d876727f009861ff7c79bc91ae4ade5d60163cc844fddd0a1a58671c275")}, // POS
-{350, uint256S("0x6b190ffe5dbb8387f94962df1152e3a70f44ea2630b519c4b1df65aae97a5c46")}, // POS V2
-{450, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // v3.4
-{500, uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5")}, // v4.0
-{550, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // v5.0
-{8000, uint256S("0x19995a5f00a8d4193f762cb25c551bf14d516d80f57348d3293a957d282f7804")}, // Release
+{0, uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4")}, // Gen Block
+{292, uint256S("0xadc04f7cf58e61d11e071713bfc7f6f0b33a0d36a92d1efdb7c17072ebfa19c3")}, // POS
+/*{500, uint256S("0x6b190ffe5dbb8387f94962df1152e3a70f44ea2630b519c4b1df65aae97a5c46")}, // POS V2
+{3400, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // v3.4
+{4000, uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5")}, // v4.0
+{5000, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // v5.0
+{8000, uint256S("0x19995a5f00a8d4193f762cb25c551bf14d516d80f57348d3293a957d282f7804")}, // Release Block
+*/
 };
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1614561657, // * UNIX timestamp of last checkpoint block
-    16622,    // * total number of transactions between genesis and last checkpoint
+    297,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the UpdateTip debug.log lines)
-    3000        // * estimated number of transactions per day after checkpoint
+    1440        // * estimated number of transactions per day after checkpoint
 };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet = {
@@ -114,13 +115,13 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4"));
         assert(genesis.hashMerkleRoot == uint256S("0x4ac76f83d67fbc92044772541d2c46ed6a85d1c911ae01888533a0327933ddf3"));
 		
-        consensus.fPowAllowMinDifficultyBlocks = false;
+        consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // SURGE starting difficulty is 1 / 2^12
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;
         consensus.nBudgetCycleBlocks = 43200;       // approx. 1 every 30 days
         consensus.nBudgetFeeConfirmations = 6;      // Number of confirmations for the finalization fee
-        consensus.nCoinbaseMaturity = 100;
+        consensus.nCoinbaseMaturity = 75; // Default 100
         consensus.nFutureTimeDriftPoW = 7200;
         consensus.nFutureTimeDriftPoS = 180;
         consensus.nMasternodeCountDrift = 20;       // num of MN we allow the see-saw payments to be off by
@@ -128,7 +129,7 @@ public:
         consensus.nPoolMaxTransactions = 3;
         consensus.nProposalEstablishmentTime = 60 * 60 * 24;    // must be at least a day old to make it into a budget
         consensus.nStakeMinAge = 60 * 60;
-        consensus.nStakeMinDepth = 50;
+        consensus.nStakeMinDepth = 45; // Edited for production
         consensus.nTargetTimespan = 40 * 60;
         consensus.nTargetTimespanV2 = 30 * 60;
         consensus.nTargetSpacing = 1 * 60;
@@ -173,14 +174,14 @@ public:
         consensus.vUpgrades[Consensus::UPGRADE_TESTDUMMY].nActivationHeight =
                 Consensus::NetworkUpgrade::NO_ACTIVATION_HEIGHT;
         consensus.vUpgrades[Consensus::UPGRADE_POS].nActivationHeight           = 292;
-        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 350;
+        consensus.vUpgrades[Consensus::UPGRADE_POS_V2].nActivationHeight        = 500;
         consensus.vUpgrades[Consensus::UPGRADE_ZC].nActivationHeight            = 999999999;
         consensus.vUpgrades[Consensus::UPGRADE_ZC_V2].nActivationHeight         = 999999999;
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].nActivationHeight         = 292;
         consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].nActivationHeight     = 999999999;
-        consensus.vUpgrades[Consensus::UPGRADE_V3_4].nActivationHeight          = 450;
-        consensus.vUpgrades[Consensus::UPGRADE_V4_0].nActivationHeight          = 500;
-        consensus.vUpgrades[Consensus::UPGRADE_V5_0].nActivationHeight          = 550;
+        consensus.vUpgrades[Consensus::UPGRADE_V3_4].nActivationHeight          = 3400;
+        consensus.vUpgrades[Consensus::UPGRADE_V4_0].nActivationHeight          = 4000;
+        consensus.vUpgrades[Consensus::UPGRADE_V5_0].nActivationHeight          = 5000;
 		
 		/*
         consensus.vUpgrades[Consensus::UPGRADE_ZC].hashActivationBlock =
@@ -190,12 +191,15 @@ public:
 		consensus.vUpgrades[Consensus::UPGRADE_ZC_PUBLIC].hashActivationBlock =
                 uint256S("0xe2448b76d88d37aba4194ffed1041b680d779919157ddf5cbf423373d7f8078e");		
 		*/	
+		
+		/*
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock =
                 uint256S("0x34ae9d876727f009861ff7c79bc91ae4ade5d60163cc844fddd0a1a58671c275");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock =
                 uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock =
                 uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5");
+		*/
 		
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -224,7 +228,7 @@ public:
         // BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x03)(0x3a).convert_to_container<std::vector<unsigned char> >();
 
-        //vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
+        vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
 
         // Sapling
         bech32HRPs[SAPLING_PAYMENT_ADDRESS]      = "ps";

@@ -633,7 +633,7 @@ public:
 "                           <a style='color: #b088ff' href='https://discord.surgeofficial.uk'>\n"
 "                           #support in our Discord</a>.\n"
 "                           If you prefer to submit a ticket, You can do so at\n"
-"                           <a style='color: #b088ff' href='https://SURGE.freshdesk.com'>\n"
+"                           <a style='color: #b088ff' href='https://support.surgeofficial.uk'>\n"
 "                           our Freshdesk support site</a>.\n"
 "                           </p></body></html>\n"
 "                         ", Q_NULLPTR));
