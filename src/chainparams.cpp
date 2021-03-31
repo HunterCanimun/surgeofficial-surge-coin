@@ -115,7 +115,7 @@ public:
         assert(consensus.hashGenesisBlock == uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4"));
         assert(genesis.hashMerkleRoot == uint256S("0x4ac76f83d67fbc92044772541d2c46ed6a85d1c911ae01888533a0327933ddf3"));
 		
-        consensus.fPowAllowMinDifficultyBlocks = true;
+        consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.powLimit   = ~UINT256_ZERO >> 20;   // SURGE starting difficulty is 1 / 2^12
         consensus.posLimitV1 = ~UINT256_ZERO >> 24;
         consensus.posLimitV2 = ~UINT256_ZERO >> 20;

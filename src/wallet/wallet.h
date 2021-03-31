@@ -208,7 +208,7 @@ public:
     }
     // Check whether staking status is active (last attempt earlier than 30 seconds ago) 
     // bool IsActive() const { return true;// (nTime + 30) >= GetTime();
-	bool IsActive() const { return true; //(nTime + 30) >= GetTime();
+	bool IsActive() const { return (nTime + 30) >= GetTime();
 	}
 };
 
