@@ -67,12 +67,12 @@ static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits
 static Checkpoints::MapCheckpoints mapCheckpoints = {
 {0, uint256S("0x00000f46b81cd71dee4aefa7bfa93f0aaa7053c824fd22afa9ca71596d963aa4")}, // Gen Block
 {292, uint256S("0xadc04f7cf58e61d11e071713bfc7f6f0b33a0d36a92d1efdb7c17072ebfa19c3")}, // POS
-/*{500, uint256S("0x6b190ffe5dbb8387f94962df1152e3a70f44ea2630b519c4b1df65aae97a5c46")}, // POS V2
-{3400, uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060")}, // v3.4
-{4000, uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5")}, // v4.0
-{5000, uint256S("0xd43190ef4ecdd4926bee964ea7688b68f226cd9782f371aa851bd4601ee8440c")}, // v5.0
-{8000, uint256S("0x19995a5f00a8d4193f762cb25c551bf14d516d80f57348d3293a957d282f7804")}, // Release Block
-*/
+{500, uint256S("0xf10c0b5cec515c626cd74881e2cbc2fdac30ee7b72e507fca64dd4af6c6950da")}, // POS V2
+{3400, uint256S("0x8ead02ecfeed14ae9e700f3fc68f4c82d136f8d21012df7bf07c46a2f52a93b3")}, // v3.4
+{4000, uint256S("0x5921aa042cfb4b1677f15d5178bda016d8a29b6736a73894ac0ca898f4846c7e")}, // v4.0
+{5000, uint256S("0x8e71d6a7fbbeebe610603a5c7dd541e275442ad0d6036c195f53e0884d534c15")}, // v5.0
+{8000, uint256S("0xd6512e375e86b20fb4d87579c971d7f9f47c07e7aacca75b738b42575b22f092")}, // Release Block
+
 };
 
 static const Checkpoints::CCheckpointData data = {
@@ -192,14 +192,13 @@ public:
                 uint256S("0xe2448b76d88d37aba4194ffed1041b680d779919157ddf5cbf423373d7f8078e");		
 		*/	
 		
-		/*
         consensus.vUpgrades[Consensus::UPGRADE_BIP65].hashActivationBlock =
-                uint256S("0x34ae9d876727f009861ff7c79bc91ae4ade5d60163cc844fddd0a1a58671c275");
+                uint256S("0xadc04f7cf58e61d11e071713bfc7f6f0b33a0d36a92d1efdb7c17072ebfa19c3");
         consensus.vUpgrades[Consensus::UPGRADE_V3_4].hashActivationBlock =
-                uint256S("0xee4656993989573e9f35e5c411c1583ced8de2ba3f81d3c8434279a42952c060");
+                uint256S("0x8ead02ecfeed14ae9e700f3fc68f4c82d136f8d21012df7bf07c46a2f52a93b3");
         consensus.vUpgrades[Consensus::UPGRADE_V4_0].hashActivationBlock =
-                uint256S("0x6a8bf443826d275d49b5c5cfc09f0309d8a82ee245ca86c3d50bc85a255568c5");
-		*/
+                uint256S("0x5921aa042cfb4b1677f15d5178bda016d8a29b6736a73894ac0ca898f4846c7e");
+	
 		
         /**
          * The message start string is designed to be unlikely to occur in normal data.
