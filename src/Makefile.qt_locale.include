@@ -11,5 +11,4 @@ QT_TS = \
   qt/locale/surge_nl.ts \
   qt/locale/surge_pl.ts \
   qt/locale/surge_ru.ts \
-  qt/locale/surge_tr.ts \
   qt/locale/surge_zh_CN.ts

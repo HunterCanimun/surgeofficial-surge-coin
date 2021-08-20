@@ -158,7 +158,7 @@ QPushButton[cssClass="btn-check-cold-staking"] {
 QPushButton[cssClass="btn-check-cold-staking-inactive"] {
     qproperty-icon: url("://ic-check-cold-staking-off");
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
+    color:#B3FFFFFF;
     background-color:#405c4b7d;
     border-bottom:2px solid #5C4B7D;
     border-radius:2px;
@@ -175,7 +175,7 @@ QPushButton[cssClass="btn-check-cold-staking-checked"] {
 QPushButton[cssClass="btn-check-cold-staking-unchecked"] {
     qproperty-icon: url("://ic-check-cold-staking-enabled");
     qproperty-iconSize: 24px 24px;
-    color:#ffffff;
+    color:#B3FFFFFF;
     background-color:#405c4b7d;
     border-bottom:2px solid #5C4B7D;
     border-radius:2px;
@@ -605,59 +605,6 @@ QPushButton[cssClass="btn-check-stack"]:checked {
     color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
     border-bottom:2px solid #1279e5; /* Vivid Blue. https://www.colorhexa.com/1279e5 */
 }
-
-/*******************
-******cold staking*********
- ********************/
-
-QPushButton[cssClass="btn-check-cold-staking"] {
-    qproperty-icon: url("://ic-check-cold-staking");
-    qproperty-iconSize: 24px 24px;
-    color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
-    background-color:#500e60b6; /* Strong Blue. https://www.colorhexa.com/0e60b6 */
-    border-bottom:2px solid #52a0f1;  /* Soft Blue. https://www.colorhexa.com/52a0f1 */;
-    border-radius:2px;
-}
-
-
-QPushButton[cssClass="btn-check-cold-staking-inactive"] {
-    qproperty-icon: url("://ic-check-cold-staking-off");
-    qproperty-iconSize: 24px 24px;
-    color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
-    background-color:#400e60b6; /* Strong Blue. https://www.colorhexa.com/0e60b6 */
-    border-bottom:2px solid #52a0f1;  /* Soft Blue. https://www.colorhexa.com/52a0f1 */;
-    border-radius:2px;
-}
-
-QPushButton[cssClass="btn-check-cold-staking-checked"] {
-    qproperty-icon: url("://ic-check-cold-staking-enabled");
-    qproperty-iconSize: 24px 24px;
-    background-color:#500e60b6; /* Strong Blue. https://www.colorhexa.com/0e60b6 */
-    color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
-    border-bottom:2px solid #1279e5; /* Vivid Blue. https://www.colorhexa.com/1279e5 */
-}
-
-QPushButton[cssClass="btn-check-cold-staking-unchecked"] {
-    qproperty-icon: url("://ic-check-cold-staking-enabled");
-    qproperty-iconSize: 24px 24px;
-    color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
-    background-color:#400e60b6; /* Strong Blue. https://www.colorhexa.com/0e60b6 */
-    border-bottom:2px solid #52a0f1;  /* Soft Blue. https://www.colorhexa.com/52a0f1 */;
-    border-radius:2px;
-}
-
-QPushButton[cssClass="btn-check-cold-staking"]:checked {
-    qproperty-icon: url("://ic-check-cold-staking-enabled");
-    qproperty-iconSize: 24px 24px;
-    background-color:#500e60b6; /* Strong Blue. https://www.colorhexa.com/0e60b6 */
-    color:#ffffff; /* White. https://www.colorhexa.com/ffffff */
-    border-bottom:2px solid #1279e5; /* Vivid Blue. https://www.colorhexa.com/1279e5 */
-}
-
-/*******************
-******end cold staking*********
- ********************/
-
 QPushButton[cssClass="btn-check-connect"] {
     qproperty-icon: url("://ic-check-connect") ;
     qproperty-iconSize: 24px 24px;
@@ -1861,9 +1808,12 @@ QProgressBar[cssClass="progress-splash"]::chunk:horizontal {
     margin-right: 2px;
 }
 
+
 /*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 HH      DASHBOARD
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
+
+
 
 *[cssClass="text-warning"] {
     color:#f84444;
@@ -2006,6 +1956,7 @@ QComboBox[cssClass="btn-combo-chart"] {
     font-size:16px;
     border:1px solid #0f0b16; /* White. https://www.colorhexa.com/ffffff */
     color: #bababa; /* Gray. https://www.colorhexa.com/bababa */
+    selection-color:#707070;
     text-align: right;
     border-radius:2px;
 }
@@ -2097,6 +2048,7 @@ QPushButton[cssClass="btn-check-time"]:disabled {
     padding:4px;
     border:1px solid #0e60b6; /* Strong blue. https://www.colorhexa.com/0e60b6 */
     border-radius: 2px;
+
 }
 
 /*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
@@ -2358,7 +2310,6 @@ QComboBox QAbstractItemView::item:selected {
     margin:0px;
     color: #0e60b6; /* Strong blue. https://www.colorhexa.com/0e60b6 */
     border-radius:0px;
-    border:none;
     outline: 0px;
 }
 
@@ -2503,6 +2454,7 @@ QPushButton[cssClass="ic-step-confirm"] {
     background-image: url("://ic-check-white");
     background-position:center;
     background-repeat:no-repeat;
+    
     border-radius:11px;
     border:  1px solid #bababa; /* Gray. https://www.colorhexa.com/bababa */
     background-color:#bababa; /* Gray. https://www.colorhexa.com/bababa */

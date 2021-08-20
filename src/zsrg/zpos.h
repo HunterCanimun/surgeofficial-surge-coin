@@ -11,9 +11,9 @@
 class CLegacyZSrgStake : public CStakeInput
 {
 private:
-    uint32_t nChecksum;
-    libzerocoin::CoinDenomination denom;
-    uint256 hashSerial;
+    uint32_t nChecksum{0};
+    libzerocoin::CoinDenomination denom{libzerocoin::ZQ_ERROR};
+    uint256 hashSerial{UINT256_ZERO};
 
 public:
     CLegacyZSrgStake() : CStakeInput(nullptr) {}

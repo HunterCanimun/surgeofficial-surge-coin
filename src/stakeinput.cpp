@@ -6,7 +6,6 @@
 
 #include "chain.h"
 #include "txdb.h"
-#include "zsrg/deterministicmint.h"
 #include "wallet/wallet.h"
 
 CSrgStake* CSrgStake::NewSrgStake(const CTxIn& txin)
@@ -18,7 +17,7 @@ CSrgStake* CSrgStake::NewSrgStake(const CTxIn& txin)
 
     // Find the previous transaction in database
     uint256 hashBlock;
-    CTransaction txPrev;
+    CTransactionRef txPrev;
     if (!GetTransaction(txin.prevout.hash, txPrev, hashBlock, true)) {
         error("%s : INFO: read txPrev failed, tx id prev: %s", __func__, txin.prevout.hash.GetHex());
         return nullptr;
@@ -36,7 +35,7 @@ CSrgStake* CSrgStake::NewSrgStake(const CTxIn& txin)
         return nullptr;
     }
 
-    return new CSrgStake(txPrev.vout[txin.prevout.n],
+    return new CSrgStake(txPrev->vout[txin.prevout.n],
                          txin.prevout,
                          pindexFrom);
 }

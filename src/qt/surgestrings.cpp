@@ -35,8 +35,7 @@ QT_TRANSLATE_NOOP("surge-core", ""
 "Please run 'sapling-fetch-params' or './util/fetch-params.sh' and then "
 "restart."),
 QT_TRANSLATE_NOOP("surge-core", ""
-"Cannot obtain a lock on data directory %s. SURGE Core is probably already "
-"running."),
+"Cannot obtain a lock on data directory %s. %s is probably already running."),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Cannot upgrade to Sapling wallet (already running Sapling support). Version: "
 "%d"),
@@ -80,9 +79,6 @@ QT_TRANSLATE_NOOP("surge-core", ""
 QT_TRANSLATE_NOOP("surge-core", ""
 "Enable spork administration functionality with the appropriate private key."),
 QT_TRANSLATE_NOOP("surge-core", ""
-"Enter regression test mode, which uses a special chain in which blocks can "
-"be solved instantly."),
-QT_TRANSLATE_NOOP("surge-core", ""
 "Error: Listening for incoming connections failed (listen returned error %s)"),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Error: Unsupported argument -checklevel found. Checklevel must be level 4."),
@@ -103,9 +99,6 @@ QT_TRANSLATE_NOOP("surge-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("surge-core", ""
-"Execute command when the best block changes and its size is over (%s in cmd "
-"is replaced by block hash, %d with the block size)"),
-QT_TRANSLATE_NOOP("surge-core", ""
 "Fees (in %s/Kb) smaller than this are considered zero fee for relaying, "
 "mining and transaction creation (default: %s)"),
 QT_TRANSLATE_NOOP("surge-core", ""
@@ -117,9 +110,6 @@ QT_TRANSLATE_NOOP("surge-core", ""
 QT_TRANSLATE_NOOP("surge-core", ""
 "If paytxfee is not set, include enough fee so transactions begin "
 "confirmation on average within n blocks (default: %u)"),
-QT_TRANSLATE_NOOP("surge-core", ""
-"In this mode -genproclimit controls how many blocks are generated "
-"immediately."),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Invalid amount for -maxtxfee=<amount>: '%s' (must be at least the minrelay "
 "fee of %s to prevent stuck transactions)"),
@@ -177,6 +167,9 @@ QT_TRANSLATE_NOOP("surge-core", ""
 QT_TRANSLATE_NOOP("surge-core", ""
 "Support filtering of blocks and transaction with bloom filters (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", ""
+"System error while flushing the chainstate after pruning invalid entries. "
+"Possible corrupt database."),
+QT_TRANSLATE_NOOP("surge-core", ""
 "The block database contains a block which appears to be from the future. "
 "This may be due to your computer's date and time being set incorrectly. Only "
 "rebuild the block database if you are sure that your computer's date and "
@@ -196,6 +189,9 @@ QT_TRANSLATE_NOOP("surge-core", ""
 "Reduce the number or size of uacomments."),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Unable to bind to %s on this computer. SURGE Core is probably already running."),
+QT_TRANSLATE_NOOP("surge-core", ""
+"Unable to replay blocks. You will need to rebuild the database using -"
+"reindex."),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -220,6 +216,8 @@ QT_TRANSLATE_NOOP("surge-core", ""
 QT_TRANSLATE_NOOP("surge-core", ""
 "Warning: error reading %s! All keys read correctly, but transaction data or "
 "address book entries might be missing or incorrect."),
+QT_TRANSLATE_NOOP("surge-core", ""
+"Whether to save the mempool on shutdown and load on restart (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", ""
 "Whitelist peers connecting from the given netmask or IP address. Can be "
 "specified multiple times."),
@@ -246,13 +244,14 @@ QT_TRANSLATE_NOOP("surge-core", "Calculating money supply..."),
 QT_TRANSLATE_NOOP("surge-core", "Can't generate a change-address key. Please call keypoolrefill first."),
 QT_TRANSLATE_NOOP("surge-core", "Cannot resolve -%s address: '%s'"),
 QT_TRANSLATE_NOOP("surge-core", "Cannot set -bind or -whitebind together with -listen=0"),
+QT_TRANSLATE_NOOP("surge-core", "Chain selection options:"),
 QT_TRANSLATE_NOOP("surge-core", "Change index out of range"),
 QT_TRANSLATE_NOOP("surge-core", "Connect through SOCKS5 proxy"),
 QT_TRANSLATE_NOOP("surge-core", "Connect to a node to retrieve peer addresses, and disconnect"),
 QT_TRANSLATE_NOOP("surge-core", "Connection options:"),
 QT_TRANSLATE_NOOP("surge-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("surge-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("surge-core", "Copyright (C) 2020-%i The SURGE Core Developers"),
+QT_TRANSLATE_NOOP("surge-core", "Copyright (C) 2015-%i The PIVX Core Developers"),
 QT_TRANSLATE_NOOP("surge-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("surge-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("surge-core", "Debugging/Testing options:"),
@@ -298,7 +297,7 @@ QT_TRANSLATE_NOOP("surge-core", "Imports blocks from external blk000??.dat file"
 QT_TRANSLATE_NOOP("surge-core", "Include IP addresses in debug output (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("surge-core", "Information"),
-QT_TRANSLATE_NOOP("surge-core", "Initialization sanity check failed. SURGE Core is shutting down."),
+QT_TRANSLATE_NOOP("surge-core", "Initialization sanity check failed. %s is shutting down."),
 QT_TRANSLATE_NOOP("surge-core", "Insufficient funds."),
 QT_TRANSLATE_NOOP("surge-core", "Invalid -masternodeaddr address: %s"),
 QT_TRANSLATE_NOOP("surge-core", "Invalid -masternodeaddr port %d, isn't the same as the peer port %d"),
@@ -325,6 +324,7 @@ QT_TRANSLATE_NOOP("surge-core", "Loading masternode cache..."),
 QT_TRANSLATE_NOOP("surge-core", "Loading masternode payment cache..."),
 QT_TRANSLATE_NOOP("surge-core", "Loading sporks..."),
 QT_TRANSLATE_NOOP("surge-core", "Loading wallet..."),
+QT_TRANSLATE_NOOP("surge-core", "Loading/Pruning invalid outputs..."),
 QT_TRANSLATE_NOOP("surge-core", "Location of the auth cookie (default: data dir)"),
 QT_TRANSLATE_NOOP("surge-core", "Lock masternodes from masternode configuration file (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", "Lookup(): Invalid -proxy address or hostname: '%s'"),
@@ -352,9 +352,11 @@ QT_TRANSLATE_NOOP("surge-core", "Print version and exit"),
 QT_TRANSLATE_NOOP("surge-core", "RPC server options:"),
 QT_TRANSLATE_NOOP("surge-core", "Randomly drop 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("surge-core", "Randomly fuzz 1 of every <n> network messages"),
+QT_TRANSLATE_NOOP("surge-core", "Reaccepting wallet transactions..."),
 QT_TRANSLATE_NOOP("surge-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("surge-core", "Relay and mine data carrier transactions (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", "Relay non-P2SH multisig (default: %u)"),
+QT_TRANSLATE_NOOP("surge-core", "Replaying blocks..."),
 QT_TRANSLATE_NOOP("surge-core", "Rescan the block chain for missing wallet transactions"),
 QT_TRANSLATE_NOOP("surge-core", "Rescanning..."),
 QT_TRANSLATE_NOOP("surge-core", "Run a thread to flush wallet periodically (default: %u)"),
@@ -391,7 +393,6 @@ QT_TRANSLATE_NOOP("surge-core", "Synchronizing sporks..."),
 QT_TRANSLATE_NOOP("surge-core", "The threshold value cannot be less than %s"),
 QT_TRANSLATE_NOOP("surge-core", "This help message"),
 QT_TRANSLATE_NOOP("surge-core", "This is experimental software."),
-QT_TRANSLATE_NOOP("surge-core", "This is intended for regression testing tools and app development."),
 QT_TRANSLATE_NOOP("surge-core", "This is not a masternode. 'local' option disabled."),
 QT_TRANSLATE_NOOP("surge-core", "This is not a masternode."),
 QT_TRANSLATE_NOOP("surge-core", "Threshold for disconnecting misbehaving peers (default: %u)"),
@@ -409,10 +410,10 @@ QT_TRANSLATE_NOOP("surge-core", "Unable to start HTTP server. See debug log for 
 QT_TRANSLATE_NOOP("surge-core", "Unknown network specified in -onlynet: '%s'"),
 QT_TRANSLATE_NOOP("surge-core", "Unsupported logging category %s=%s."),
 QT_TRANSLATE_NOOP("surge-core", "Upgrade wallet to latest format"),
-QT_TRANSLATE_NOOP("surge-core", "Upgrading coins database..."),
+QT_TRANSLATE_NOOP("surge-core", "Upgrading coins database if needed..."),
 QT_TRANSLATE_NOOP("surge-core", "Use UPnP to map the listening port (default: %u)"),
 QT_TRANSLATE_NOOP("surge-core", "Use block spam filter (default: %u)"),
-QT_TRANSLATE_NOOP("surge-core", "Use the test network"),
+QT_TRANSLATE_NOOP("surge-core", "Use the test chain"),
 QT_TRANSLATE_NOOP("surge-core", "User Agent comment (%s) contains unsafe characters."),
 QT_TRANSLATE_NOOP("surge-core", "Username for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("surge-core", "Verifying blocks..."),

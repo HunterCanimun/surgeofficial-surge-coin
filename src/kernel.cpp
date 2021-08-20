@@ -18,8 +18,6 @@
 #include "zsrgchain.h"
 #include "zsrg/zpos.h"
 
-#include <boost/assign/list_of.hpp>
-
 /**
  * CStakeKernel Constructor
  *

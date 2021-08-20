@@ -1,8 +1,8 @@
-SURGE Core version *v5.0.0* is now available from:  <https://github.com/HunterCanimun/surgeofficial-surge-coin/releases>
+SURGE Core version *v5.0.0* is now available from:  <https://github.com/surge-project/surge/releases>
 
 This is a new major version release, including various bug fixes and performance improvements, as well as updated translations.
 
-Please report bugs using the issue tracker at github: <https://github.com/HunterCanimun/surgeofficial-surge-coin/issues>
+Please report bugs using the issue tracker at github: <https://github.com/surge-project/surge/issues>
 
 
 Mandatory Update
@@ -10,7 +10,10 @@ Mandatory Update
 
 SURGE Core v5.0.0 is a mandatory update for all users. This release contains a protocol upgrade (to `70920`), new consensus rules and improvements that are not backwards compatible with older versions. Users will need to update their clients before enforcement of this update goes into effect.
 
-
+Update enforcement is currently scheduled to go into effect at the following block height:
+```
+Mainnet: 2,700,500
+```
 Masternodes will need to be restarted once both the masternode daemon and the controller wallet have been upgraded.
 
 Note: In preparation for the enforcement, upgraded peers will start rejecting non-upgraded peers few hours before the enforcement block height, we recommend everyone to be updated at max a day before the final time.
@@ -55,7 +58,7 @@ New SHIELD Protocol Implemented!
 
 #### Overview
 Users will be able to protect their financial information by sending and receiving SRGs privately, as well as sending and receiving encrypted messages attached to the shield transactions.
-More visual information about the protocol can be found at https://surgeofficial.uk .
+More visual information about the protocol can be found at https://www.surgeofficial.uk .
 
 #### GUI features
 New set of functionalities for the interaction with the SHIELD protocol:
@@ -155,7 +158,7 @@ Account API Removed
 The 'account' API was deprecated in v4.2.0, and has been fully removed in v5.0.0.
 The 'label' API was introduced in v4.2.0 as a replacement for accounts.
 
-See the release notes from [v4.2.0](https://github.com/HunterCanimun/surgeofficial-surge-coin/blob/master/doc/release-notes/release-notes-4.2.0.md#label-and-account-apis-for-wallet) for a full description of the changes from the 'account' API to the 'label' API.
+See the release notes from [v4.2.0](https://github.com/Surge/surge-official-coin/blob/master/doc/release-notes/release-notes-4.2.0.md#label-and-account-apis-for-wallet) for a full description of the changes from the 'account' API to the 'label' API.
 
 SwiftX Removed
 --------------
