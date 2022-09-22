@@ -55,12 +55,11 @@ SettingsExportCSV::SettingsExportCSV(SURGEGUI* _window, QWidget *parent) :
     connect(ui->pushButtonAddressDocuments, &QPushButton::clicked, [this](){selectFileOutput(false);});
 }
 
-void SettingsExportCSV::selectFileOutput(const bool& isTxExport)
+void SettingsExportCSV::selectFileOutput(const bool isTxExport)
 {
     QString filename = GUIUtil::getSaveFileName(this,
-                                        isTxExport ? tr("Export CSV") : tr("Export Address List"), QString(),
-                                        isTxExport ? tr("SURGE_tx_csv_export(*.csv)") : tr("SURGE_addresses_csv_export(*.csv)"),
-                                        nullptr);
+                                        isTxExport ? tr("Export Transaction History") : tr("Export Address Book"), QString(),
+                                        tr("Comma separated file (*.csv)"), nullptr);
 
     if (isTxExport) {
         if (!filename.isEmpty()) {

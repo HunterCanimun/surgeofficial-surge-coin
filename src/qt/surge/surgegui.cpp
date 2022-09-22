@@ -17,9 +17,8 @@
 #include "guiinterface.h"
 #include "qt/surge/qtutils.h"
 #include "qt/surge/defaultdialog.h"
-
-#include "init.h"
-#include "util.h"
+#include "shutdown.h"
+#include "util/system.h"
 
 #include <QApplication>
 #include <QColor>
@@ -59,14 +58,14 @@ SURGEGUI::SURGEGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
-    enableWallet = !gArgs.GetBoolArg("-disablewallet", false);
+    enableWallet = !gArgs.GetBoolArg("-disablewallet", DEFAULT_DISABLE_WALLET);
 #else
     enableWallet = false;
 #endif // ENABLE_WALLET
 
     QString windowTitle = QString::fromStdString(gArgs.GetArg("-windowtitle", ""));
     if (windowTitle.isEmpty()) {
-        windowTitle = tr("SURGE Core") + " - ";
+        windowTitle = QString{PACKAGE_NAME} + " - ";
         windowTitle += ((enableWallet) ? tr("Wallet") : tr("Node"));
     }
     windowTitle += " " + networkStyle->getTitleAddText();
@@ -126,6 +125,7 @@ SURGEGUI::SURGEGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         addressesWidget = new AddressesWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
         coldStakingWidget = new ColdStakingWidget(this);
+        governancewidget = new GovernanceWidget(this);
         settingsWidget = new SettingsWidget(this);
 
         // Add to parent
@@ -135,6 +135,7 @@ SURGEGUI::SURGEGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         stackedContainer->addWidget(addressesWidget);
         stackedContainer->addWidget(masterNodesWidget);
         stackedContainer->addWidget(coldStakingWidget);
+        stackedContainer->addWidget(governancewidget);
         stackedContainer->addWidget(settingsWidget);
         stackedContainer->setCurrentWidget(dashboard);
 
@@ -202,6 +203,8 @@ void SURGEGUI::connectActions()
     connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &SURGEGUI::execDialog);
     connect(coldStakingWidget, &ColdStakingWidget::showHide, this, &SURGEGUI::showHide);
     connect(coldStakingWidget, &ColdStakingWidget::execDialog, this, &SURGEGUI::execDialog);
+    connect(governancewidget, &GovernanceWidget::showHide, this, &SURGEGUI::showHide);
+    connect(governancewidget, &GovernanceWidget::execDialog, this, &SURGEGUI::execDialog);
     connect(settingsWidget, &SettingsWidget::execDialog, this, &SURGEGUI::execDialog);
 }
 
@@ -210,7 +213,7 @@ void SURGEGUI::createTrayIcon(const NetworkStyle* networkStyle)
 {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("SURGE Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("%1 client").arg(PACKAGE_NAME) + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -251,7 +254,9 @@ void SURGEGUI::setClientModel(ClientModel* _clientModel)
         topBar->setClientModel(clientModel);
         dashboard->setClientModel(clientModel);
         sendWidget->setClientModel(clientModel);
+        masterNodesWidget->setClientModel(clientModel);
         settingsWidget->setClientModel(clientModel);
+        governancewidget->setClientModel(clientModel);
 
         // Receive and report messages from client model
         connect(clientModel, &ClientModel::message, this, &SURGEGUI::message);
@@ -260,6 +265,7 @@ void SURGEGUI::setClientModel(ClientModel* _clientModel)
         });
         connect(topBar, &TopBar::walletSynced, dashboard, &DashboardWidget::walletSynced);
         connect(topBar, &TopBar::walletSynced, coldStakingWidget, &ColdStakingWidget::walletSynced);
+        connect(topBar, &TopBar::tierTwoSynced, governancewidget, &GovernanceWidget::tierTwoSynced);
 
         // Get restart command-line parameters and handle restart
         connect(settingsWidget, &SettingsWidget::handleRestart, [this](QStringList arg){handleRestart(arg);});
@@ -374,7 +380,7 @@ void SURGEGUI::messageInfo(const QString& text)
 
 void SURGEGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret)
 {
-    QString strTitle =  tr("SURGE Core"); // default title
+    QString strTitle = QString{PACKAGE_NAME}; // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
 
@@ -443,7 +449,7 @@ bool SURGEGUI::openStandardDialog(QString title, QString body, QString okBtn, QS
     } else {
         dialog = new DefaultDialog();
         dialog->setText(title, body, okBtn);
-        dialog->setWindowTitle(tr("SURGE Core"));
+        dialog->setWindowTitle(PACKAGE_NAME);
         dialog->adjustSize();
         dialog->raise();
         dialog->exec();
@@ -505,6 +511,11 @@ void SURGEGUI::goToMasterNodes()
 void SURGEGUI::goToColdStaking()
 {
     showTop(coldStakingWidget);
+}
+
+void SURGEGUI::goToGovernance()
+{
+    showTop(governancewidget);
 }
 
 void SURGEGUI::goToSettings(){
@@ -600,7 +611,7 @@ int SURGEGUI::getNavWidth()
 void SURGEGUI::openFAQ(SettingsFaqWidget::Section section)
 {
     showHide(true);
-    SettingsFaqWidget* dialog = new SettingsFaqWidget(this);
+    SettingsFaqWidget* dialog = new SettingsFaqWidget(this, clientModel);
     dialog->setSection(section);
     openDialogWithOpaqueBackgroundFullScreen(dialog, this);
     dialog->deleteLater();
@@ -608,6 +619,19 @@ void SURGEGUI::openFAQ(SettingsFaqWidget::Section section)
 
 
 #ifdef ENABLE_WALLET
+void SURGEGUI::setGovModel(GovernanceModel* govModel)
+{
+    if (!stackedContainer || !clientModel) return;
+    governancewidget->setGovModel(govModel);
+}
+
+void SURGEGUI::setMNModel(MNModel* mnModel)
+{
+    if (!stackedContainer || !clientModel) return;
+    governancewidget->setMNModel(mnModel);
+    masterNodesWidget->setMNModel(mnModel);
+}
+
 bool SURGEGUI::addWallet(const QString& name, WalletModel* walletModel)
 {
     // Single wallet supported for now..
@@ -623,6 +647,7 @@ bool SURGEGUI::addWallet(const QString& name, WalletModel* walletModel)
     addressesWidget->setWalletModel(walletModel);
     masterNodesWidget->setWalletModel(walletModel);
     coldStakingWidget->setWalletModel(walletModel);
+    governancewidget->setWalletModel(walletModel);
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
@@ -633,6 +658,7 @@ bool SURGEGUI::addWallet(const QString& name, WalletModel* walletModel)
     connect(sendWidget, &SendWidget::message,this, &SURGEGUI::message);
     connect(receiveWidget, &ReceiveWidget::message,this, &SURGEGUI::message);
     connect(addressesWidget, &AddressesWidget::message,this, &SURGEGUI::message);
+    connect(governancewidget, &GovernanceWidget::message,this, &SURGEGUI::message);
     connect(settingsWidget, &SettingsWidget::message, this, &SURGEGUI::message);
 
     // Pass through transaction notifications
@@ -657,7 +683,7 @@ void SURGEGUI::incomingTransaction(const QString& date, int unit, const CAmount&
     // Only send notifications when not disabled
     if (!bdisableSystemnotifications) {
         // On new transaction, make an info balloon
-        message((amount) < 0 ? (pwalletMain->fMultiSendNotify == true ? tr("Sent MultiSend transaction") : tr("Sent transaction")) : tr("Incoming transaction"),
+        message(amount < 0 ? tr("Sent transaction") : tr("Incoming transaction"),
             tr("Date: %1\n"
                "Amount: %2\n"
                "Type: %3\n"
@@ -667,8 +693,6 @@ void SURGEGUI::incomingTransaction(const QString& date, int unit, const CAmount&
                 .arg(type)
                 .arg(address),
             CClientUIInterface::MSG_INFORMATION);
-
-        pwalletMain->fMultiSendNotify = false;
     }
 }
 

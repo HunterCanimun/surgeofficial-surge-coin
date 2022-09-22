@@ -8,7 +8,7 @@
 
 #include <QDialog>
 #include "qt/surge/prunnable.h"
-#include "allocators.h"
+#include "support/allocators/secure.h"
 #include <QCheckBox>
 
 class WalletModel;

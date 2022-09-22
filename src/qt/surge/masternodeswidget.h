@@ -7,7 +7,6 @@
 
 #include "qt/surge/pwidget.h"
 #include "qt/surge/furabstractlistitemdelegate.h"
-#include "qt/surge/mnmodel.h"
 #include "qt/surge/tooltipmenu.h"
 #include "walletmodel.h"
 
@@ -17,6 +16,7 @@
 #include <QWidget>
 
 class SURGEGUI;
+class MNModel;
 
 namespace Ui {
 class MasterNodesWidget;
@@ -34,8 +34,7 @@ public:
 
     explicit MasterNodesWidget(SURGEGUI *parent = nullptr);
     ~MasterNodesWidget();
-
-    void loadWalletModel() override;
+    void setMNModel(MNModel* _mnModel);
 
     void run(int type) override;
     void onError(QString error, int type) override;
@@ -52,7 +51,7 @@ private Q_SLOTS:
     void onDeleteMNClicked();
     void onInfoMNClicked();
     void updateListState();
-    void updateModelAndInform(QString informText);
+    void updateModelAndInform(const QString& informText);
 
 private:
     Ui::MasterNodesWidget *ui;
@@ -65,9 +64,8 @@ private:
     std::atomic<bool> isLoading;
 
     bool checkMNsNetwork();
-    void startAlias(QString strAlias);
+    void startAlias(const QString& strAlias);
     bool startAll(QString& failedMN, bool onlyMissing);
-    bool startMN(const CMasternodeConfig::CMasternodeEntry& mne, std::string& strError);
 };
 
 #endif // MASTERNODESWIDGET_H

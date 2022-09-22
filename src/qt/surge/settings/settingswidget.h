@@ -15,7 +15,6 @@
 #include "qt/surge/settings/settingswalletoptionswidget.h"
 #include "qt/surge/settings/settingsmainoptionswidget.h"
 #include "qt/surge/settings/settingsdisplayoptionswidget.h"
-#include "qt/surge/settings/settingsmultisendwidget.h"
 #include "qt/surge/settings/settingsinformationwidget.h"
 #include "qt/surge/settings/settingsconsolewidget.h"
 
@@ -57,7 +56,6 @@ private Q_SLOTS:
     // Wallet Configuration
     void onConfigurationClicked();
     void onBipToolClicked();
-    void onMultisendClicked();
     void onExportCSVClicked();
 
     // Options
@@ -92,7 +90,6 @@ private:
     SettingsWalletOptionsWidget *settingsWalletOptionsWidget{nullptr};
     SettingsMainOptionsWidget *settingsMainOptionsWidget{nullptr};
     SettingsDisplayOptionsWidget *settingsDisplayOptionsWidget{nullptr};
-    SettingsMultisendWidget *settingsMultisendWidget{nullptr};
     SettingsInformationWidget *settingsInformationWidget{nullptr};
     SettingsConsoleWidget *settingsConsoleWidget{nullptr};
 
